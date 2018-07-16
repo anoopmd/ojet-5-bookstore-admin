@@ -1,0 +1,8 @@
+sweet-alert:not(.oj-complete){
+  visibility: hidden;
+}
+
+sweet-alert{
+	min-height: 50px;
+	width: 50px;
+}

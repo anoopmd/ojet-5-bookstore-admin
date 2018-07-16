@@ -1,0 +1,33 @@
+{
+  "name": "my-alert-attributes",
+  "displayName": "my-alert-attributes",
+  "description": "Describe your component here",
+  "version": "1.0.0",
+  "jetVersion": "5.0.0",
+  "properties": {
+    "message" : {
+      "type" : "string",
+      "writeback": true,
+      "value": "Anonymous"
+    },
+    "callback" : {
+      "type" : "function"
+    }
+  },
+  "methods": {
+
+  }, 
+  "events" : {
+    "alertClicked" : {
+      "description" : "The event that consuming views can use to recognize when this badge is selected",
+      "bubbles" : true,
+      "cancelable" : false,
+      "detail" : {
+        "message" : {"type" : "string"}
+      }
+    }
+  },
+  "slots": {
+
+  }
+}

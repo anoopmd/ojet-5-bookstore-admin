@@ -1,0 +1,89 @@
+
+// Note that the order in the aggregating file is important
+//
+// 1. custom variables file: Due to the way sass default works, 
+//    the custom variable file must be imported before the platform theme 
+//    aggregating file (where the platform variable file will be imported).
+// 2. platform theme aggregating file
+
+// import custom variable overrides
+// @import "bookstore.web.settings";
+
+// import alta aggregating file
+@import "../../../../node_modules/@oracle/oraclejet/dist/scss/alta/oj-alta";
+
+@import 'helpers/flex';
+$color-bs-primary: #0984e3;
+
+header.oj-web-applayout-header{
+  background-color: $color-bs-primary;
+  color: white;
+
+  .oj-web-applayout-header-title{
+    color: white;
+  }
+
+  .oj-navigationlist-item-label, .oj-navigationlist-app-level.oj-navigationlist-horizontal .oj-navigationlist-item:not(.oj-disabled) a.oj-navigationlist-item-content > .oj-navigationlist-item-label{
+    color: white;
+  }
+
+  .oj-navigationlist-item-icon, .oj-navigationlist-app-level.oj-navigationlist-horizontal .oj-navigationlist-item:not(.oj-disabled):not(.oj-hover):not(.oj-selected) .oj-navigationlist-item-icon{
+    color: white;
+  }
+
+  .oj-navigationlist-app-level.oj-navigationlist-horizontal:not(.oj-navigationlist-icon-only) .oj-navigationlist-item.oj-selected:not(.oj-hover) .oj-navigationlist-item-icon{
+    color: white;
+  }
+
+  li.oj-navigationlist-item-element.oj-navigationlist-item.oj-selected{
+    border-bottom-color: white;
+  }
+
+  .oj-button-jqui.oj-default.oj-button-half-chrome, .oj-button-jqui.oj-focus-only.oj-button-half-chrome, .oj-button.oj-default.oj-button-half-chrome .oj-button-button, .oj-button.oj-focus-only.oj-button-half-chrome .oj-button-button{
+    color: white;
+  }
+
+  .oj-button.oj-default.oj-button-half-chrome .oj-button-icon, .oj-button.oj-focus-only.oj-button-half-chrome .oj-button-icon{
+    color: white;
+  }
+}
+
+div.bookstore-book-list{
+  oj-list-view{
+    height: auto !important;
+  }
+  ul{
+    display: flex;
+
+    li.oj-listview-item-element{
+      width: 200px;
+      margin-right: 15px;
+      margin-top: 15px;
+      border: solid 1px silver;
+      border-radius: 3px;
+      padding: 10px 15px;
+      margin-left: 0;
+
+      img.book-cover{
+        width: 90%;
+      }
+
+      div.title{
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      div.author{
+        margin-bottom: 10px;
+      }
+
+      div.price{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 20px;
+        font-weight: bold;
+      }
+    }
+  }
+}

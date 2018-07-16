@@ -1,0 +1,43 @@
+{
+  "name": "sweet-alert",
+  "displayName": "sweet-alert",
+  "description": "Describe your component here",
+  "version": "1.0.0",
+  "jetVersion": "5.0.0",
+  "properties": {
+    "message" : {
+      "type" : "string",
+      "writeback": true,
+      "value": "Anonymous"
+    },
+    "onSuccess" : {
+      "type" : "function"
+    }
+  },
+  "events" : {
+    "alertClicked" : {
+      "description" : "The event that consuming views can use to recognize when this badge is selected",
+      "bubbles" : true,
+      "cancelable" : false,
+      "detail" : {
+        "message" : {"type" : "string"}
+      }
+    }
+  },
+  "slots" : {
+    "foo":{
+      "description" : "This is places in foo"
+    },
+    "bar":{
+      "description" : "This is placed in bar"
+    }
+  }
+}
+
+
+
+
+
+
+
+
