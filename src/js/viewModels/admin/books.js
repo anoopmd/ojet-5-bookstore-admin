@@ -52,9 +52,11 @@ define(['ojs/ojcore', 'knockout', 'jquery',
       };
 
       this.deleteUser = function(data, event){
-        self.books.get(data.id, {deferred: true}).then(function(model) {
-          model.destroy({wait:true});
-        });
+        self.books
+          .get(data.id, {deferred: true})
+          .then(function(model) {
+            model.destroy({wait:true});
+          });
       };
 
       self.connected = function() {

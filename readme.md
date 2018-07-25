@@ -16,7 +16,7 @@ ojet build
 
 # Serve
 ojet serve
-ojet serve --theme=build
+ojet serve --theme=bookstore
 
 # Run WebService
 node server.js
