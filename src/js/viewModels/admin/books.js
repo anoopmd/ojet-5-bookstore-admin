@@ -5,6 +5,7 @@ define(['ojs/ojcore', 'knockout', 'jquery',
   'ojs/ojcollectiontabledatasource', 'ojs/ojtable',
   'ojs/ojcollectionpagingdatasource',
   'ojs/ojdialog',
+  'ojs/ojinputtext', 'ojs/ojlabel',
   'ojs/ojpagingtabledatasource', 'ojs/ojpagingcontrol',
   'ojs/ojknockout', 'ojs/ojinputtext', 'ojs/ojcheckboxset', 'ojs/ojformlayout'],
  function(oj, ko, $, Book, Books) {
@@ -27,6 +28,35 @@ define(['ojs/ojcore', 'knockout', 'jquery',
         author: ko.observable(''),
         price: ko.observable('')
       };
+
+      this.editDialog = {
+        data: ko.observable(),
+        open: function(data, event) {
+          self.editDialog.data({
+            id: data.id,
+            title: data.title,
+            author: data.author,
+            price: data.price
+          });
+          document.getElementById("editDialog").open();  
+        },
+        close: function() {
+          document.getElementById("editDialog").close();
+        }
+      }
+
+      this.openEditDialog = function(data){
+        self.editDialog.open(data);
+      };
+
+      this.editBook = function() {
+        let data = self.editDialog.data();
+        self.books.get(data.id, {deferred: true}).then(function(model) {
+          model.save(data, {wait:true});
+        });
+        self.editDialog.close();
+      }
+
       this.columns = [
         {"headerText": "Title", "field": "title", "sortable": "enabled"},
         {"headerText": "Author", "field": "author", "sortable": "enabled"},

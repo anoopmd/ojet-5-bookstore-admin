@@ -23,7 +23,7 @@
       row-renderer='[[oj.KnockoutTemplateUtils.getRenderer("admin_book_list_row", true)]]'>
 
       <oj-paging-control data='[[pagingDatasource]]' page-size='5'
-          style="margin-top: 5px;" slot='bottom'>
+          style="margin-top: 5px;" slot='top'>
       </oj-paging-control> 
     </oj-table>
   </div>
@@ -35,9 +35,39 @@
     <td><div data-bind="text: author"></div></td>
     <td><div data-bind="text: price"></div></td>
     <td>
-      <!-- <oj-button data-bind="click:$parent.editDialog.open" class="oj-button-sm">Edit</oj-button> -->
-      <oj-button class="oj-button-sm">Edit</oj-button>
+      <oj-button data-bind="click:openEditDialog" class="oj-button-sm">Edit</oj-button>
       <oj-button data-bind="click:deleteUser" class="oj-button-sm">Delete</oj-button>
     </td>
   </tr>
 </script>
+
+
+
+<oj-dialog id="editDialog" style="display:none" title="Edit User"
+drag-affordance="title-bar" modality="modeless" resize-behavior="none">
+  <div slot="header" class="oj-helper-clearfix" aria-labelledby="dialog-title-id">
+    <div>
+      <span id="dialog-title-id" class="oj-dialog-title">Edit User</span>
+    </div>
+  </div>
+  <div slot="body">
+    <div data-bind="with:editDialog.data">
+      <div class="oj-md-odd-cols-4">
+        <oj-label for="newTitle" class="oj-label">Title</oj-label>
+        <oj-input-text id="newTitle" value="{{title}}"></oj-input-text>
+      </div>
+      <div class="oj-md-odd-cols-4">
+        <oj-label for="newAuthor" class="oj-label">Author</oj-label>
+        <oj-input-text id="newAuthor" value="{{author}}"></oj-input-text>
+      </div>
+      <div class="oj-md-odd-cols-4">
+        <oj-label for="newPrice" class="oj-label">Price</oj-label>
+        <oj-input-text id="newPrice" value="{{price}}"></oj-input-text>
+      </div>
+    </div>
+  </div>
+  <div slot="footer">
+    <oj-button id="submitBtn" on-click="[[editBook]]">Edit</oj-button>
+    <oj-button id="resetBtn" on-click="[[editDialog.close]]">Cancel</oj-button>
+  </div>
+</oj-dialog>

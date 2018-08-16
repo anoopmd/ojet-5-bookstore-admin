@@ -3,7 +3,6 @@ define(['ojs/ojcore', 'ojs/ojmodel'], function(oj){
     urlRoot: 'http://localhost:5000/api/book',
     idAttribute:'id',
     parse: function(book) {
-      console.log(book);
       return {
         id: book.id,
         title: book.title,
